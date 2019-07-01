@@ -53,8 +53,7 @@ public:
     bool hasPathSum(TreeNode *root, int sum) {
         if (!root) return false;
         bool found = false;
-        if (root->left) DFS(root->left, sum - root->val, found);
-        if (root->right && !found) DFS(root->right, sum - root->val, found);
+        DFS(root, sum, found);
         return found;
     }
 };
@@ -67,6 +66,7 @@ void test1() {
     vector<int> v1{5, 4, 8, 11, -1, 13, 4, 7, 2, -1, -1, -1, -1, -1, 1};
 
     TreeNode *t1 = new TreeNode(v1);
+    cout << "t ? " << Solution().hasPathSum(new TreeNode(vector<int>{1}), 1) << endl;
     cout << "f ? " << Solution().hasPathSum(t1, 21) << endl;
     cout << "t ? " << Solution().hasPathSum(t1, 22) << endl;
 //    cout << " ? " << Solution().func() << endl;
